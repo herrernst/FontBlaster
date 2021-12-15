@@ -102,7 +102,7 @@ private extension FontBlaster {
 
             let fontRef = CGFont(dataProvider)
 
-            if CTFontManagerRegisterGraphicsFont(fontRef!, &fontError),
+            if CTFontManagerRegisterFontsForURL(fontFileURL as NSURL, .process, &fontError),
                let postScriptName = fontRef?.postScriptName {
                     printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
                     loadedFonts.append(String(postScriptName))
